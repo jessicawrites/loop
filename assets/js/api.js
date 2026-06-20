@@ -66,15 +66,15 @@ const API = {
         const body = new FormData();
         body.append('username', username);
         body.append('password', password);
-        return this.request('/loop/api/auth/login.php', { method: 'POST', body });
+        return this.request('/api/auth/login.php', { method: 'POST', body });
     },
 
     async register(formData) {
-        return this.request('/loop/api/auth/register.php', { method: 'POST', body: formData });
+        return this.request('/api/auth/register.php', { method: 'POST', body: formData });
     },
 
     async logout() {
-        return this.request('/loop/api/auth/logout.php', { method: 'POST' });
+        return this.request('/api/auth/logout.php', { method: 'POST' });
     },
 
     // ── Messages ──────────────────────────────────────────────────────────
@@ -83,38 +83,38 @@ const API = {
         const body = new FormData();
         body.append('conversation_id', conversationId);
         body.append('content', content);
-        return this.request('/loop/api/messages/send.php', { method: 'POST', body });
+        return this.request('/api/messages/send.php', { method: 'POST', body });
     },
 
     async fetchMessages(conversationId, lastId = 0) {
         return this.request(
-            `/loop/api/messages/fetch.php?conversation_id=${conversationId}&last_id=${lastId}`
+            `/api/messages/fetch.php?conversation_id=${conversationId}&last_id=${lastId}`
         );
     },
 
     async fetchConversations() {
-        return this.request('/loop/api/messages/conversations.php');
+        return this.request('/api/messages/conversations.php');
     },
 
     // ── Users ─────────────────────────────────────────────────────────────
 
     async searchUsers(query) {
-        return this.request(`/loop/api/users/search.php?q=${encodeURIComponent(query)}`);
+        return this.request(`/api/users/search.php?q=${encodeURIComponent(query)}`);
     },
 
     async updateProfile(formData) {
-        return this.request('/loop/api/users/profile.php', { method: 'POST', body: formData });
+        return this.request('/api/users/profile.php', { method: 'POST', body: formData });
     },
 
     async updateStatus(status) {
         const body = new FormData();
         body.append('status', status);
-        return this.request('/loop/api/users/status.php', { method: 'POST', body });
+        return this.request('/api/users/status.php', { method: 'POST', body });
     },
 
     // ── Notifications ─────────────────────────────────────────────────────
 
     async fetchNotifications() {
-        return this.request('/loop/api/notifications/fetch.php');
+        return this.request('/api/notifications/fetch.php');
     }
 };
