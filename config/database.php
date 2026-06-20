@@ -20,10 +20,10 @@ function get_db(): PDO {
 
     if ($pdo === null) {
         // ── Database credentials ──────────────────────────────────────────
-        $host    = 'localhost';
-        $db      = 'loop_db';
-        $user    = 'root';
-        $pass    = '';             // Laragon default: empty password
+        $host    = 'sql112.infinityfree.com';
+        $db      = 'if0_42231355_loop_db';
+        $user    = 'if0_42231355';
+        $pass    = '9unVCyUVXNBGZvB';             // Laragon default: empty password
         $charset = 'utf8mb4';      // Full Unicode — supports emojis ✅
 
         // ── DSN = Data Source Name ────────────────────────────────────────
