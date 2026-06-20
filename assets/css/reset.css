@@ -1,0 +1,74 @@
+/**
+ * Loop — CSS Reset & Base Styles
+ * 
+ * Removes browser inconsistencies and sets sensible defaults.
+ */
+
+/* ── Box Model ───────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ── Root ────────────────────────────────────────────────────────────────── */
+html {
+    font-size: var(--font-size-base);
+    -webkit-text-size-adjust: 100%;   /* Prevent font scaling on iOS rotation */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:      var(--font-family);
+    font-size:        var(--font-size-base);
+    font-weight:      var(--font-weight-normal);
+    line-height:      var(--line-height-normal);
+    color:            var(--color-text-primary);
+    background-color: var(--color-bg);
+    min-height:       100vh;
+    -webkit-font-smoothing:  antialiased;    /* Crisp fonts on macOS/iOS */
+    -moz-osx-font-smoothing: grayscale;
+    overscroll-behavior:     none;           /* Prevent bounce on mobile */
+}
+
+/* ── Typography ──────────────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-tight);
+    color:       var(--color-text-primary);
+}
+
+p { line-height: var(--line-height-relaxed); }
+
+a {
+    color:           var(--color-primary);
+    text-decoration: none;
+    transition:      color var(--transition-fast);
+}
+
+a:hover { color: var(--color-primary-hover); }
+
+/* ── Form Elements ───────────────────────────────────────────────────────── */
+input, textarea, select, button {
+    font-family: inherit;
+    font-size:   inherit;
+    border:      none;
+    outline:     none;
+    background:  none;
+}
+
+button { cursor: pointer; }
+
+img {
+    max-width:   100%;
+    height:      auto;
+    display:     block;
+}
+
+ul, ol { list-style: none; }
+
+/* ── Mobile Touch ────────────────────────────────────────────────────────── */
+button, a, [role="button"] {
+    -webkit-tap-highlight-color: transparent;  /* Remove tap flash on mobile */
+    touch-action: manipulation;                 /* Faster tap response */
+}

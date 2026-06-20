@@ -1,0 +1,30 @@
+# Loop — Apache Configuration
+
+# Disable directory browsing
+Options -Indexes
+
+# Follow symbolic links
+Options +FollowSymLinks
+
+# Default charset
+AddDefaultCharset UTF-8
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Protect sensitive directories from direct access
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Block direct access to config and includes
+    RewriteRule ^config/ - [F,L]
+    RewriteRule ^includes/ - [F,L]
+</IfModule>
+
+# PHP error handling for production (change to On during development)
+php_flag display_errors On
+php_value error_reporting E_ALL

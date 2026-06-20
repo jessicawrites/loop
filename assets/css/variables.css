@@ -1,0 +1,116 @@
+/**
+ * Loop — Design Tokens (CSS Custom Properties)
+ * 
+ * Every color, size, shadow, and timing value lives here.
+ * Change a value here and it updates the entire app instantly.
+ */
+
+:root {
+    /* ── Brand Colors ──────────────────────────────────────────────────── */
+    --color-primary:        #2563EB;   /* Trust blue — buttons, links */
+    --color-primary-hover:  #1D4ED8;   /* Darker blue on hover */
+    --color-primary-light:  #EFF6FF;   /* Light blue — backgrounds */
+    --color-secondary:      #14B8A6;   /* Teal — active states, success */
+    --color-secondary-hover:#0F9D8C;
+
+    /* ── Semantic Colors ───────────────────────────────────────────────── */
+    --color-success:        #22C55E;
+    --color-error:          #EF4444;
+    --color-warning:        #F59E0B;
+    --color-info:           #3B82F6;
+
+    /* ── Neutral Palette ───────────────────────────────────────────────── */
+    --color-bg:             #F8FAFC;   /* Page background */
+    --color-surface:        #FFFFFF;   /* Cards, panels */
+    --color-border:         #E2E8F0;   /* Dividers, input borders */
+    --color-text-primary:   #0F172A;   /* Main readable text */
+    --color-text-secondary: #64748B;   /* Subtitles, metadata */
+    --color-text-muted:     #94A3B8;   /* Placeholder, disabled */
+
+    /* ── Chat Bubbles ──────────────────────────────────────────────────── */
+    --bubble-sent:          #2563EB;   /* Outgoing message background */
+    --bubble-sent-text:     #FFFFFF;
+    --bubble-received:      #FFFFFF;   /* Incoming message background */
+    --bubble-received-text: #0F172A;
+
+    /* ── Typography ────────────────────────────────────────────────────── */
+    --font-family:          'Inter', -apple-system, BlinkMacSystemFont,
+                            'Segoe UI', sans-serif;
+    --font-size-xs:         11px;
+    --font-size-sm:         13px;
+    --font-size-base:       15px;
+    --font-size-md:         16px;
+    --font-size-lg:         18px;
+    --font-size-xl:         22px;
+    --font-size-2xl:        28px;
+    --font-weight-normal:   400;
+    --font-weight-medium:   500;
+    --font-weight-semibold: 600;
+    --font-weight-bold:     700;
+    --line-height-tight:    1.3;
+    --line-height-normal:   1.5;
+    --line-height-relaxed:  1.7;
+
+    /* ── Spacing Scale ─────────────────────────────────────────────────── */
+    --space-1:   4px;
+    --space-2:   8px;
+    --space-3:   12px;
+    --space-4:   16px;
+    --space-5:   20px;
+    --space-6:   24px;
+    --space-8:   32px;
+    --space-10:  40px;
+    --space-12:  48px;
+    --space-16:  64px;
+
+    /* ── Border Radius ─────────────────────────────────────────────────── */
+    --radius-sm:   6px;
+    --radius-md:   12px;
+    --radius-lg:   16px;
+    --radius-xl:   24px;
+    --radius-full: 9999px;
+
+    /* ── Shadows ───────────────────────────────────────────────────────── */
+    --shadow-xs:  0 1px 2px rgba(0,0,0,0.05);
+    --shadow-sm:  0 2px 8px rgba(0,0,0,0.06);
+    --shadow-md:  0 4px 16px rgba(0,0,0,0.08);
+    --shadow-lg:  0 8px 32px rgba(0,0,0,0.12);
+    --shadow-xl:  0 16px 48px rgba(0,0,0,0.16);
+
+    /* ── Transitions ───────────────────────────────────────────────────── */
+    --transition-fast:    150ms ease;
+    --transition-normal:  250ms ease;
+    --transition-slow:    400ms ease;
+    --transition-bounce:  300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* ── Layout ────────────────────────────────────────────────────────── */
+    --max-width-app:   480px;     /* Mobile-first max width */
+    --composer-height: 72px;   /* Height of the message input bar */
+    --nav-height:      60px;      /* Bottom navigation bar */
+    --header-height:   60px;      /* Top header bar */
+    --safe-bottom:     env(safe-area-inset-bottom, 0px);  /* iPhone notch */
+
+    /* ── Z-index Scale ─────────────────────────────────────────────────── */
+    --z-base:     1;
+    --z-dropdown: 100;
+    --z-sticky:   200;
+    --z-modal:    300;
+    --z-toast:    400;
+    --z-overlay:  500;
+}
+
+/* ── Dark Mode Tokens ────────────────────────────────────────────────────── */
+/* Activated in M9 — tokens defined now so nothing breaks later */
+[data-theme="dark"] {
+    --color-bg:             #0F172A;
+    --color-surface:        #1E293B;
+    --color-border:         #334155;
+    --color-text-primary:   #F1F5F9;
+    --color-text-secondary: #94A3B8;
+    --color-text-muted:     #64748B;
+    --color-primary-light:  #1E3A5F;
+    --bubble-received:      #1E293B;
+    --bubble-received-text: #F1F5F9;
+    --shadow-sm:  0 2px 8px rgba(0,0,0,0.3);
+    --shadow-md:  0 4px 16px rgba(0,0,0,0.4);
+}

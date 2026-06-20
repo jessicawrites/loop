@@ -1,0 +1,25 @@
+/**
+ * Loop — Master CSS Entry Point
+ *
+ * This is the ONLY CSS file linked in HTML.
+ * It imports all other CSS files in the correct order.
+ * Order matters: variables → reset → layout → components → animations
+ */
+
+/* Google Fonts — Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Design tokens must be first — everything else references them */
+@import url('variables.css');
+
+/* Reset comes before any styling */
+@import url('reset.css');
+
+/* Layout defines structural containers */
+@import url('layout.css');
+
+/* Components build on top of layout */
+@import url('components.css');
+
+/* Animations are last — they reference component classes */
+@import url('animations.css');

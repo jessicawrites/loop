@@ -1,0 +1,222 @@
+/**
+ * Loop — Layout System
+ * 
+ * Page containers, app shell, header, bottom navigation.
+ * The structural skeleton every page is built inside.
+ */
+
+/* ── App Shell ───────────────────────────────────────────────────────────── */
+/* The outer wrapper that constrains the app to mobile width on desktop */
+.app-shell {
+    max-width:  var(--max-width-app);
+    margin:     0 auto;
+    min-height: 100vh;
+    background: var(--color-surface);
+    position:   relative;
+    box-shadow: var(--shadow-xl);      /* Subtle border on desktop */
+}
+
+/* ── Page Header ─────────────────────────────────────────────────────────── */
+.page-header {
+    position:        sticky;
+    top:             0;
+    z-index:         var(--z-sticky);
+    height:          var(--header-height);
+    background:      var(--color-surface);
+    border-bottom:   1px solid var(--color-border);
+    display:         flex;
+    align-items:     center;
+    padding:         0 var(--space-4);
+    gap:             var(--space-3);
+    backdrop-filter: blur(12px);       /* Frosted glass effect */
+}
+
+.page-header-title {
+    font-size:   var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    flex:        1;
+}
+
+.page-header-action {
+    width:         40px;
+    height:        40px;
+    border-radius: 50%;
+    display:       flex;
+    align-items:   center;
+    justify-content: center;
+    color:         var(--color-text-secondary);
+    transition:    all var(--transition-fast);
+    flex-shrink:   0;
+}
+.page-header-action:hover {
+    background: var(--color-bg);
+    color:      var(--color-text-primary);
+}
+
+/* ── Page Content ────────────────────────────────────────────────────────── */
+/* Main scrollable area between header and bottom nav */
+.page-content {
+    height:     calc(100vh - var(--header-height) - var(--nav-height));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;   /* Smooth momentum scrolling on iOS */
+}
+
+/* Pages without bottom nav (auth pages) */
+.page-content-full {
+    min-height: calc(100vh - var(--header-height));
+    overflow-y: auto;
+}
+
+/* ── Bottom Navigation ───────────────────────────────────────────────────── */
+.bottom-nav {
+    position:      fixed;
+    bottom:        0;
+    left:          50%;
+    transform:     translateX(-50%);
+    width:         100%;
+    max-width:     var(--max-width-app);
+    height:        calc(var(--nav-height) + var(--safe-bottom));
+    padding-bottom: var(--safe-bottom);
+    background:    var(--color-surface);
+    border-top:    1px solid var(--color-border);
+    display:       flex;
+    align-items:   center;
+    justify-content: space-around;
+    z-index:       var(--z-sticky);
+}
+
+.nav-item {
+    flex:           1;
+    display:        flex;
+    flex-direction: column;
+    align-items:    center;
+    justify-content: center;
+    gap:            4px;
+    color:          var(--color-text-muted);
+    transition:     all var(--transition-fast);
+    height:         100%;
+    padding-top:    var(--space-2);
+    position:       relative;
+}
+.nav-item.active  { color: var(--color-primary); }
+.nav-item:hover   { color: var(--color-text-secondary); }
+
+.nav-item svg     { width: 22px; height: 22px; }
+
+.nav-label {
+    font-size:   10px;
+    font-weight: var(--font-weight-medium);
+}
+
+/* ── Auth Layout ─────────────────────────────────────────────────────────── */
+/* Centered layout for login and register pages */
+.auth-container {
+    min-height:      100vh;
+    display:         flex;
+    flex-direction:  column;
+    justify-content: center;
+    padding:         var(--space-6);
+    background:      var(--color-bg);
+    max-width:       var(--max-width-app);
+    margin:          0 auto;
+}
+
+.auth-logo {
+    text-align:    center;
+    margin-bottom: var(--space-8);
+}
+.auth-logo-text {
+    font-size:   var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color:       var(--color-primary);
+    letter-spacing: -0.5px;
+}
+.auth-logo-sub {
+    font-size:  var(--font-size-sm);
+    color:      var(--color-text-secondary);
+    margin-top: var(--space-1);
+}
+
+.auth-card {
+    background:    var(--color-surface);
+    border-radius: var(--radius-xl);
+    padding:       var(--space-8) var(--space-6);
+    box-shadow:    var(--shadow-md);
+}
+
+.auth-title {
+    font-size:     var(--font-size-xl);
+    font-weight:   var(--font-weight-bold);
+    margin-bottom: var(--space-2);
+}
+.auth-subtitle {
+    color:         var(--color-text-secondary);
+    font-size:     var(--font-size-sm);
+    margin-bottom: var(--space-6);
+    line-height:   var(--line-height-relaxed);
+}
+
+.auth-form { display: flex; flex-direction: column; gap: var(--space-4); }
+
+.auth-footer {
+    text-align:  center;
+    margin-top:  var(--space-5);
+    font-size:   var(--font-size-sm);
+    color:       var(--color-text-secondary);
+}
+
+/* ── Floating Action Button ──────────────────────────────────────────────── */
+.fab {
+    position:       fixed;
+    bottom:         calc(var(--nav-height) + var(--space-5) + var(--safe-bottom));
+    right:          var(--space-5);
+    width:          56px;
+    height:         56px;
+    border-radius:  50%;
+    background:     var(--color-primary);
+    color:          white;
+    box-shadow:     var(--shadow-lg);
+    display:        flex;
+    align-items:    center;
+    justify-content: center;
+    z-index:        var(--z-dropdown);
+    transition:     all var(--transition-bounce);
+}
+.fab:hover {
+    transform:  scale(1.08) translateY(-2px);
+    box-shadow: var(--shadow-xl);
+    color:      white;
+}
+.fab:active { transform: scale(0.95); }
+.fab svg    { width: 24px; height: 24px; }
+
+/* ── Empty State ─────────────────────────────────────────────────────────── */
+.empty-state {
+    display:        flex;
+    flex-direction: column;
+    align-items:    center;
+    justify-content: center;
+    text-align:     center;
+    padding:        var(--space-16) var(--space-8);
+    gap:            var(--space-4);
+}
+.empty-state-icon {
+    width:      72px;
+    height:     72px;
+    background: var(--color-primary-light);
+    border-radius: 50%;
+    display:    flex;
+    align-items: center;
+    justify-content: center;
+    color:      var(--color-primary);
+}
+.empty-state-title {
+    font-size:   var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+}
+.empty-state-text {
+    color:     var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    max-width: 260px;
+    line-height: var(--line-height-relaxed);
+}

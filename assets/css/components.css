@@ -1,0 +1,272 @@
+/**
+ * Loop — UI Components
+ * 
+ * Reusable building blocks: buttons, inputs, cards, badges, avatars.
+ * These are the LEGO bricks of the interface.
+ */
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   BUTTONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.btn {
+    display:         inline-flex;
+    align-items:     center;
+    justify-content: center;
+    gap:             var(--space-2);
+    padding:         var(--space-3) var(--space-6);
+    border-radius:   var(--radius-full);
+    font-weight:     var(--font-weight-semibold);
+    font-size:       var(--font-size-base);
+    transition:      all var(--transition-fast);
+    white-space:     nowrap;
+    user-select:     none;
+    position:        relative;
+    overflow:        hidden;
+    min-height:      48px;   /* Minimum touch target */
+}
+
+.btn:active { transform: scale(0.97); }
+
+/* Primary Button */
+.btn-primary {
+    background: var(--color-primary);
+    color:      white;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.3);
+}
+.btn-primary:hover {
+    background: var(--color-primary-hover);
+    box-shadow: 0 4px 16px rgba(37,99,235,0.4);
+    transform:  translateY(-1px);
+    color:      white;
+}
+
+/* Secondary Button */
+.btn-secondary {
+    background: var(--color-surface);
+    color:      var(--color-text-primary);
+    border:     1.5px solid var(--color-border);
+}
+.btn-secondary:hover {
+    background:   var(--color-bg);
+    border-color: var(--color-primary);
+    color:        var(--color-primary);
+}
+
+/* Ghost Button */
+.btn-ghost {
+    background: transparent;
+    color:      var(--color-text-secondary);
+}
+.btn-ghost:hover {
+    background: var(--color-bg);
+    color:      var(--color-text-primary);
+}
+
+/* Danger Button */
+.btn-danger {
+    background: var(--color-error);
+    color:      white;
+}
+.btn-danger:hover { filter: brightness(0.9); }
+
+/* Full Width */
+.btn-full { width: 100%; }
+
+/* Loading state */
+.btn.loading {
+    pointer-events: none;
+    opacity:        0.75;
+}
+.btn.loading::after {
+    content:      '';
+    width:        16px;
+    height:       16px;
+    border:       2px solid transparent;
+    border-top:   2px solid currentColor;
+    border-radius: 50%;
+    animation:    spin 0.7s linear infinite;
+    margin-left:  var(--space-2);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   INPUTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.input-group {
+    display:        flex;
+    flex-direction: column;
+    gap:            var(--space-2);
+}
+
+.input-label {
+    font-size:   var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color:       var(--color-text-secondary);
+}
+
+.input-field {
+    width:         100%;
+    padding:       var(--space-3) var(--space-4);
+    background:    var(--color-surface);
+    border:        1.5px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color:         var(--color-text-primary);
+    font-size:     var(--font-size-base);
+    transition:    all var(--transition-fast);
+    min-height:    48px;
+}
+.input-field::placeholder { color: var(--color-text-muted); }
+.input-field:focus {
+    border-color: var(--color-primary);
+    box-shadow:   0 0 0 3px rgba(37,99,235,0.12);
+    background:   var(--color-surface);
+}
+.input-field.error {
+    border-color: var(--color-error);
+    box-shadow:   0 0 0 3px rgba(239,68,68,0.12);
+}
+
+.input-hint {
+    font-size: var(--font-size-xs);
+    color:     var(--color-text-muted);
+}
+.input-hint.error-msg { color: var(--color-error); }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   CARDS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.card {
+    background:    var(--color-surface);
+    border-radius: var(--radius-lg);
+    box-shadow:    var(--shadow-sm);
+    overflow:      hidden;
+}
+
+.card-padded { padding: var(--space-6); }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   AVATARS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.avatar {
+    border-radius: 50%;
+    object-fit:    cover;
+    flex-shrink:   0;
+    background:    var(--color-border);
+}
+.avatar-xs  { width: 28px;  height: 28px; }
+.avatar-sm  { width: 36px;  height: 36px; }
+.avatar-md  { width: 46px;  height: 46px; }
+.avatar-lg  { width: 60px;  height: 60px; }
+.avatar-xl  { width: 80px;  height: 80px; }
+.avatar-2xl { width: 100px; height: 100px; }
+
+/* Avatar with online indicator */
+.avatar-wrap {
+    position:    relative;
+    display:     inline-block;
+    flex-shrink: 0;
+}
+.online-dot {
+    position:      absolute;
+    bottom:        1px;
+    right:         1px;
+    width:         10px;
+    height:        10px;
+    background:    var(--color-secondary);
+    border-radius: 50%;
+    border:        2px solid var(--color-surface);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   BADGES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.badge {
+    display:         inline-flex;
+    align-items:     center;
+    justify-content: center;
+    min-width:       20px;
+    height:          20px;
+    padding:         0 var(--space-1);
+    background:      var(--color-error);
+    color:           white;
+    border-radius:   var(--radius-full);
+    font-size:       var(--font-size-xs);
+    font-weight:     var(--font-weight-bold);
+    line-height:     1;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   DIVIDERS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.divider {
+    height:     1px;
+    background: var(--color-border);
+    border:     none;
+    margin:     var(--space-4) 0;
+}
+
+.divider-text {
+    display:     flex;
+    align-items: center;
+    gap:         var(--space-3);
+    color:       var(--color-text-muted);
+    font-size:   var(--font-size-sm);
+}
+.divider-text::before,
+.divider-text::after {
+    content:    '';
+    flex:       1;
+    height:     1px;
+    background: var(--color-border);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   TOAST NOTIFICATIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.toast-container {
+    position:  fixed;
+    top:       var(--space-5);
+    left:      50%;
+    transform: translateX(-50%);
+    z-index:   var(--z-toast);
+    display:   flex;
+    flex-direction: column;
+    gap:       var(--space-2);
+    pointer-events: none;
+    width:     calc(100% - var(--space-8));
+    max-width: 380px;
+}
+
+.toast {
+    display:       flex;
+    align-items:   center;
+    gap:           var(--space-3);
+    padding:       var(--space-3) var(--space-4);
+    background:    var(--color-text-primary);
+    color:         white;
+    border-radius: var(--radius-md);
+    box-shadow:    var(--shadow-lg);
+    font-size:     var(--font-size-sm);
+    font-weight:   var(--font-weight-medium);
+    pointer-events: auto;
+    animation:     slideDown var(--transition-normal) forwards;
+}
+.toast.success { background: var(--color-success); }
+.toast.error   { background: var(--color-error); }
+.toast.warning { background: var(--color-warning); }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SKELETON LOADERS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.skeleton {
+    background:    linear-gradient(
+        90deg,
+        var(--color-border) 25%,
+        var(--color-bg)     50%,
+        var(--color-border) 75%
+    );
+    background-size: 200% 100%;
+    animation:       shimmer 1.5s infinite;
+    border-radius:   var(--radius-sm);
+}
+.skeleton-text  { height: 14px; border-radius: var(--radius-sm); }
+.skeleton-avatar { border-radius: 50%; }
