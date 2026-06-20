@@ -9,7 +9,7 @@
 // ─── Application Info ───────────────────────────────────────────────────────
 define('APP_NAME',    'Loop');
 define('APP_VERSION', '1.0.0');
-define('APP_URL',     'http://localhost/loop');
+define('APP_URL',     'http://loop.infinityfree.io');
 
 // ─── File Paths ──────────────────────────────────────────────────────────────
 define('ROOT_PATH',    dirname(__DIR__));          // C:/laragon/www/loop
