@@ -8,7 +8,7 @@
 const App = {
     version:  '1.0.0',
     name:     'Loop',
-    baseUrl:  '/loop',
+    baseUrl: '/',
     pollInterval: null,
     heartbeatTimer: null,
 
